@@ -52,6 +52,7 @@ def post(update, context):
         post1 = api.update_status(f"{posting}")
         global posted
         posted = (post1.id)
+        globals()['posted']=post1.id
 
         update.message.reply_text('The post is: '+str(posting))
         update.message.reply_text('The url is https://twitter.com/staysafeco/status/'+str(posted))
@@ -68,11 +69,14 @@ def comment(update, context):
         number1 = str(update.message.text.replace('/comment', ''))
         result = number1
         posting = result
-        post1 = api.update_status(f"{posting}")
-        posted = (post1.id)
+        comt =  api.update_status(status = posting, in_reply_to_status_id = posted, auto_populate_reply_metadata=True)
+        postd = (comt.id)
+
+ 
+        
 
         update.message.reply_text('The post is: '+str(posting))
-        update.message.reply_text('The url is https://twitter.com/staysafeco/status/'+str(posted))
+        update.message.reply_text('The url is https://twitter.com/staysafeco/status/'+str(postd))
 
 
     except (IndexError, ValueError):
