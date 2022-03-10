@@ -76,7 +76,7 @@ def comment(update, context):
         
 
         update.message.reply_text('The post is: '+str(posting))
-        update.message.reply_text('The url is https://twitter.com/staysafeco/status/'+str(postd))
+        update.message.reply_text('The url is https://twitter.com/anygoeshere/status/'+str(postd))
 
 
     except (IndexError, ValueError):
@@ -90,7 +90,7 @@ def length(update, context):
         result = number1
         truth = len(result) - 1
         update.message.reply_text('There are '  +str(truth) + (characters))
-        update.message.reply_text('The url is https://twitter.com/staysafeco/status/'+str(posted))
+        update.message.reply_text('The url is https://twitter.com/anygoeshere/status/'+str(posted))
 
     except (IndexError, ValueError):
         update.message.reply_text('There are not enough or too many characters')
